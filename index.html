@@ -124,72 +124,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/09/%E5%A4%9A%E6%A8%A1%E6%80%81-llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="cm80eeewq0001y8dp7sp3ay3n" data-title="多模态/llava基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-llava基础知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/03/08/llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="article-date">
-  <time class="dt-published" datetime="2025-03-08T14:50:03.000Z" itemprop="datePublished">2025-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/08/llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">llava基础知识</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>llava(large language and vision assistant)</li>
-</ul>
-<h1 id="架构介绍"><a href="#架构介绍" class="headerlink" title="架构介绍"></a>架构介绍</h1><p><img src="/../../../Pictures/image-20250309000649444.png" alt="image-20250309000649444"></p>
-<p>llava模型由3个部分组成，视觉编码器，一个简单的线性层和大语言模型。</p>
-<p>$X_q$大预言指令被编码成$H_q$, $X_v$图像经过视觉编码器编码成$Z_v$，之后经过投影矩阵W获得$H_v$，最终$H_v$和$H_q$相同维度，之后经过大预言模型给出response</p>
-<p>原论文架构：</p>
-<ul>
-<li><p>vision encoder：使用pre-trained CLIP的visual encoder ViT-L&#x2F;14，得到visual feature($Z_v$)&#x3D;g($X_v$)</p>
-</li>
-<li><p>projection W:一个简单的线性层，使用可训练的投影矩阵W，将视觉特征Z_v投影成language embedding tokens$H_v$（visual tokens），使得$H_v$和文本特征$H_q$在同一特征维度；也可以使用更加复杂的比如gated cross-attention in Flamingo和Q-former in BILP-2来代替</p>
-<ul>
-<li><p>使用原因：考虑最后一个Transformer层的之前和之后的网络特征</p>
-<blockquote>
-<p>[!NOTE]</p>
-<p>不懂</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>language model: 生成word embedding, 给出回答，原论文中使用vicuna（因为它在大语言任务拥有最好的instruction following capabilities）</p>
-</li>
-</ul>
-<blockquote>
-<p>[!NOTE]</p>
-<p>所以W的目的仅仅是让H_w和H_q相同维度吗，图像编码器具体怎么做的，投影具体怎么做的，</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/08/llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="cm80eeewl0000y8dp1dsubjus" data-title="llava基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/03/09/%E5%A4%9A%E6%A8%A1%E6%80%81-llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="cm80ejuui0000fwdp3553f1b3" data-title="多模态/llava基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -233,10 +168,6 @@
         
           <li>
             <a href="/2025/03/09/%E5%A4%9A%E6%A8%A1%E6%80%81-llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">多模态/llava基础知识</a>
-          </li>
-        
-          <li>
-            <a href="/2025/03/08/llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">llava基础知识</a>
           </li>
         
       </ul>
