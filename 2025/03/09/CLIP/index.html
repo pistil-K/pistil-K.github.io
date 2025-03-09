@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>CLIP | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Learning Transferable Visual Models From Natural Language Supervision利用自然语言的监督信号去学习迁移好的视觉模型  ClIP迁移学习能力能力非常强，可以在任意一个视觉分类的数据集上，取得不错的效果，而且是zero-shot【没有在这些数据集上做训练就可以获得很高的效果】 之前最先进的视觉系统训练都是先有一个固定的提前已经定义好的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CLIP">
+<meta property="og:url" content="http://example.com/2025/03/09/CLIP/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Learning Transferable Visual Models From Natural Language Supervision利用自然语言的监督信号去学习迁移好的视觉模型  ClIP迁移学习能力能力非常强，可以在任意一个视觉分类的数据集上，取得不错的效果，而且是zero-shot【没有在这些数据集上做训练就可以获得很高的效果】 之前最先进的视觉系统训练都是先有一个固定的提前已经定义好的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Pictures/image-20250309145138600.png">
+<meta property="og:image" content="http://example.com/Pictures/image-20250309145832474.png">
+<meta property="article:published_time" content="2025-03-09T06:21:28.000Z">
+<meta property="article:modified_time" content="2025-03-09T08:27:40.640Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Pictures/image-20250309145138600.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-CLIP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/09/CLIP/" class="article-date">
+  <time class="dt-published" datetime="2025-03-09T06:21:28.000Z" itemprop="datePublished">2025-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      CLIP
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Learning-Transferable-Visual-Models-From-Natural-Language-Supervision"><a href="#Learning-Transferable-Visual-Models-From-Natural-Language-Supervision" class="headerlink" title="Learning Transferable Visual Models From Natural Language Supervision"></a>Learning Transferable Visual Models From Natural Language Supervision</h1><p>利用自然语言的监督信号去学习迁移好的视觉模型</p>
+<hr>
+<p>ClIP迁移学习能力能力非常强，可以在任意一个视觉分类的数据集上，取得不错的效果，而且是zero-shot【没有在这些数据集上做训练就可以获得很高的效果】</p>
+<p>之前最先进的视觉系统训练都是先有一个固定的提前已经定义好的物体类别（ImageNet就有固定1000个类，CIFAR10就有10个类，coco就是80个类）的集合，之后模型通过去预测这些提前定义好的类别从而完成模型的训练</p>
+<p><img src="/../../../Pictures/image-20250309145138600.png" alt="image-20250309145138600"></p>
+<ul>
+<li>图片经过image encoder获得一些特征，这里的图片编码器可以是resnet &#x2F; ViT</li>
+<li>文字通过text encoder获得文字特征</li>
+<li>CLIP接着在这些特征上做对比学习，特征矩阵里对角线方向都是正样本，即有n个正样本，$n^2-n$个负样本, 有了正负样本，模型就可以自己训练而不需要手工标注，属于无监督的预训练方式，需要大量数据</li>
+<li>对比学习<ul>
+<li>只需要正样本和负样本的定义</li>
+</ul>
+</li>
+</ul>
+<p><img src="/../../../Pictures/image-20250309145832474.png" alt="image-20250309145832474"></p>
+<ul>
+<li>CLIP做zero-shot推理<ul>
+<li>CLIP模型预训练之后只能得到视觉和文本特征，没有在分类任务上继续做训练和微调，没有分类头，所以使用prompt templte（自然语言的方法）进行推理<ul>
+<li>先把image_net里面1000个类变成一个句子，之后通过text encoder得到1000个文本特征<ul>
+<li>为什么要将单词变成句子，因为训练的时候是句子，现在突然变成单词，效果会下降</li>
+<li>如何变成句子也很讲究，所以之后也提出了prompt engineering和prompt ensemble两种方式进一步提高模型准确率，而不需要重新训练模型</li>
+</ul>
+</li>
+<li>获得一张图片，放进image encoder获得图片特征，将这一个图片特征和1000个文本特征做cosine similarity，之后图像特征和哪个文本特征最相似，就把文本特征所对应的那个句子挑出来，从而完成分类</li>
+</ul>
+</li>
+<li>彻底摆脱categorical label,不管训练还是推理都不要一个提前订好的标签的列表，任意一张照片，都可以给模型喂不同的文本句子，从而指导图片里又是没有感兴趣的物体，CLIP因为和自然语言处理的结合，CLIP学出的视觉特征和用语言描述的某个物体产生强烈的联系</li>
+</ul>
+</li>
+<li>应用<ul>
+<li>分类</li>
+<li>图像生成<ul>
+<li>StyleCLIP</li>
+<li>CLIPDraw(不需要模型训练，只需要几步gradient descent就可以生成简笔画)</li>
+</ul>
+</li>
+<li>物体检测和分割<ul>
+<li>Open-vocabulary object detection via vision and language knowledge distillation(google)</li>
+<li>clifs(视频检索)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>自监督方式：自回归预测的方式还是掩码完形填空</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/09/CLIP/" data-id="cm81snc5k0003gcdpd41bc2p4" data-title="CLIP" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/03/09/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据挖掘
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/03/09/CLIP-Adapter/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CLIP-Adapter</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/03/09/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a>
+          </li>
+        
+          <li>
+            <a href="/2025/03/09/CLIP/">CLIP</a>
+          </li>
+        
+          <li>
+            <a href="/2025/03/09/CLIP-Adapter/">CLIP-Adapter</a>
+          </li>
+        
+          <li>
+            <a href="/2025/03/09/%E5%A4%9A%E6%A8%A1%E6%80%81-llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">多模态/llava基础知识</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
