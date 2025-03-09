@@ -93,7 +93,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="llava-large-language-and-vision-assistant"><a href="#llava-large-language-and-vision-assistant" class="headerlink" title="llava(large language and vision assistant)"></a>llava(large language and vision assistant)</h1><h2 id="架构介绍"><a href="#架构介绍" class="headerlink" title="架构介绍"></a>架构介绍</h2><p><img src="/images/llava.png" alt="图片"></p>
+        <h1 id="llava-large-language-and-vision-assistant"><a href="#llava-large-language-and-vision-assistant" class="headerlink" title="llava(large language and vision assistant)"></a>llava(large language and vision assistant)</h1><h2 id="架构介绍"><a href="#架构介绍" class="headerlink" title="架构介绍"></a>架构介绍</h2><p><img src="/images/llava.png" alt="图片1"></p>
 <p>llava模型由3个部分组成，视觉编码器，一个简单的线性层和大语言模型。</p>
 <p>$X_q$大预言指令被编码成$H_q$, $X_v$图像经过视觉编码器编码成$Z_v$，之后经过投影矩阵W获得$H_v$，最终$H_v$和$H_q$相同维度，之后经过大预言模型给出response</p>
 <p>原论文架构：</p>
@@ -112,7 +112,7 @@
 <li>对于每个图像$X_v$生成多轮对话数据，每轮对话有两个部分：问题($X_q$)和答案($X_a$)</li>
 <li>将所有的对话都按照顺序组成一个整体序列，问题回答交替组织，每一轮随机选择图片和问题的顺序</li>
 </ol>
-<p><img src="/images/format.png" alt="图片"></p>
+<p><img src="/images/format.png" alt="图片2"></p>
 <ol start="3">
 <li><p>通过自回归的方法逐步生成每一个回答，对于每一个生成的回答，使用$p(Xa|Xv, Xinstr) &#x3D;  \prod_ {i&#x3D;1}^Lp_θ(xi|Xv, X_{instr},&lt;i, Xa,&lt;i)$</p>
 <ul>
@@ -145,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/09/%E5%A4%9A%E6%A8%A1%E6%80%81-llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="cm812py9c00008odpfrz67jib" data-title="多模态/llava基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/03/09/%E5%A4%9A%E6%A8%A1%E6%80%81-llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="cm812rvzd00003odp58au1aoh" data-title="多模态/llava基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
