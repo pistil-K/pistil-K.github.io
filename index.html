@@ -102,26 +102,50 @@
 </li>
 <li><p>projection W:一个简单的线性层，使用可训练的投影矩阵W，将视觉特征Z_v投影成language embedding tokens$H_v$（visual tokens），使得$H_v$和文本特征$H_q$在同一特征维度；也可以使用更加复杂的比如gated cross-attention in Flamingo和Q-former in BILP-2来代替</p>
 <ul>
-<li><p>使用原因：考虑最后一个Transformer层的之前和之后的网络特征</p>
-<blockquote>
-<p>[!NOTE]</p>
-<p>不懂</p>
-</blockquote>
-</li>
+<li>图像通过投影层映射到与文本特征相同的空间之后，直接进入Transformer的最后一层，实现图像特征和文本特征的有效融合</li>
 </ul>
 </li>
 <li><p>language model: 生成word embedding, 给出回答，原论文中使用vicuna（因为它在大语言任务拥有最好的instruction following capabilities）</p>
 </li>
 </ul>
-<blockquote>
-<p>[!NOTE]</p>
-<p>所以W的目的仅仅是让H_w和H_q相同维度吗，图像编码器具体怎么做的，投影具体怎么做的，</p>
-</blockquote>
+<h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><ol>
+<li>对于每个图像$X_v$生成多轮对话数据，每轮对话有两个部分：问题($X_q$)和答案($X_a$)</li>
+<li>将所有的对话都按照顺序组成一个整体序列，问题回答交替组织，每一轮随机选择图片和问题的顺序</li>
+</ol>
+<p><img src="/../../../Pictures/%E6%A0%BC%E5%BC%8F.png" alt="图片"></p>
+<ol start="3">
+<li><p>通过自回归的方法逐步生成每一个回答，对于每一个生成的回答，使用$p(Xa|Xv, Xinstr) &#x3D;  \prod_ {i&#x3D;1}^Lp_θ(xi|Xv, X_{instr},&lt;i, Xa,&lt;i)$</p>
+<ul>
+<li>$X_a$是目标答案，所以这个是寻找目标答案的概率</li>
+</ul>
+</li>
+<li><p>训练细节，训练时只有绿色标记（assistant的回答）会用来计算损失，最终训练目标不仅要预测助手的回答，还要学习生成一个停止标记<STOP>结束对话</p>
+</li>
+<li><p>两阶段指令微调(训练)</p>
+<ul>
+<li>第一阶段：pre-training for feature alignment【主要目标是将图像特征和语言模型的词嵌入对齐，构造兼容视觉标记器】<ul>
+<li>数据筛选：从CC3M数据集(包含大量图像-文本对的大型数据集)中筛选出595K对图像和文本</li>
+<li>将图像-文本对转化为指令跟随数据，每个图像都有一个简单的指令配对</li>
+<li>冻结视觉编码器和LLM权重，只有投影矩阵W进行训练，投影矩阵作用是将图像特征与语言模型的词嵌入对齐，使得视觉信息和语言信息在训练过程中相互关联</li>
+</ul>
+</li>
+<li>第二阶段：Fine-tuning End-to-End<ul>
+<li>视觉编码器权重依然被冻结，投影层和LLM权重被微调</li>
+<li>考虑两个具体的应用场景<ul>
+<li>多模态聊天机器人</li>
+<li>science QA</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/09/%E5%A4%9A%E6%A8%A1%E6%80%81-llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="cm80ey6dw0000r0dpar332t4t" data-title="多模态/llava基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/03/09/%E5%A4%9A%E6%A8%A1%E6%80%81-llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="cm812lpbn00009sdpgxt72r7y" data-title="多模态/llava基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
