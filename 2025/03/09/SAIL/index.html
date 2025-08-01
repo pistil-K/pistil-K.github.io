@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>SAIL | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Self-Improving Efficient Online Alignment of Large Language ModelsRLHF是将大预言模型和人类偏好对齐的关键方法，post-training标准组件之一，对齐人类价值观（helpfulness, harmlessness,honest） 在线RLHF本质上就是自我改进的过程  离线对齐方式：DPO、IPO、SLiC，使用固定数据集，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SAIL">
+<meta property="og:url" content="http://example.com/2025/03/09/SAIL/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Self-Improving Efficient Online Alignment of Large Language ModelsRLHF是将大预言模型和人类偏好对齐的关键方法，post-training标准组件之一，对齐人类价值观（helpfulness, harmlessness,honest） 在线RLHF本质上就是自我改进的过程  离线对齐方式：DPO、IPO、SLiC，使用固定数据集，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Pictures/image-20250311194021540.png">
+<meta property="og:image" content="http://example.com/Pictures/image-20250311202303371.png">
+<meta property="article:published_time" content="2025-03-09T15:34:45.000Z">
+<meta property="article:modified_time" content="2025-03-11T12:49:36.836Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Pictures/image-20250311194021540.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-SAIL" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/09/SAIL/" class="article-date">
+  <time class="dt-published" datetime="2025-03-09T15:34:45.000Z" itemprop="datePublished">2025-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      SAIL
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Self-Improving-Efficient-Online-Alignment-of-Large-Language-Models"><a href="#Self-Improving-Efficient-Online-Alignment-of-Large-Language-Models" class="headerlink" title="Self-Improving Efficient Online Alignment of Large Language Models"></a>Self-Improving Efficient Online Alignment of Large Language Models</h1><p>RLHF是将大预言模型和人类偏好对齐的关键方法，post-training标准组件之一，对齐人类价值观（helpfulness, harmlessness,honest）</p>
+<p>在线RLHF本质上就是自我改进的过程</p>
+<ul>
+<li><p>离线对齐方式：DPO、IPO、SLiC，使用固定数据集，这个如果人类偏好发生变化也无法动态更新。而且因为训练前的数据集是固定的，所以即使回答比实际的好也会被判定低分：传统RLHF主要依赖于固定的奖励模式可能导致过拟合(比如：偏向长文本就会选取冗余的回答，即使一些问题简短回答就能回答好), <strong>在 RLHF 训练过程中，语言模型（LLM）生成的回答的分布发生了变化，而奖励模型（RM）的学习目标没有考虑这种变化，从而影响了模型对齐的效果</strong>。</p>
+<ul>
+<li><p>基于深度强化学习(Deep RL)的方法：近端策略优化(PPO)进行训练，有两个阶段</p>
+<ul>
+<li><p>第一阶段：训练奖励函数</p>
+<ul>
+<li><p>给定一个偏好数据集$D_{off}&#x3D;{(x,a_w,a_t)}$,其中$a_w$是质量高的回答, $a_l$是质量较低的回答</p>
+</li>
+<li><p>使用Bradley-Terry(BT)模型的对数似然函数计算奖励（最大化最大化模型对高质量回答和低质量回答评分的差距）</p>
+</li>
+</ul>
+</li>
+<li><p>第二阶段：使用PPO进行强化学习</p>
+</li>
+</ul>
+</li>
+<li><p>直接偏好学习: DPO</p>
+</li>
+</ul>
+</li>
+<li><p>在线对齐方式：主要关注，但是缺乏统一的概念框架，存在分布偏移问题(distribution shift)【由于训练数据和推理数据分布不一样，导致模型性能下降】，即使在线RLHF会实时更新数据集，但是可能因为采样策略偏向已有模式导致探索不足，或者奖励模型本身的偏移，导致分布和人类偏好不同，错误引导LLM收敛到次优策略</p>
+<ul>
+<li>试图回答两个关键问题<ul>
+<li><p><strong>Q1：如何在微调过程中生成新的回复？</strong>： <strong>主要通过当前正在训练的 LLM 生成新回复</strong>，在每个训练迭代中利用最新的模型生成样本。</p>
+</li>
+<li><p><strong>Q2：如何收集新生成回复的偏好反馈，以便更新语言模型？</strong> <strong>依赖于偏好预言机（preference oracle）来对回复进行排名</strong>，即假设有一个理想的评分系统可以提供偏好反馈。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>论文创新点</p>
+<ul>
+<li><strong>建立了在线 LLM 对齐的 “双层优化（bilevel optimization）” 视角</strong>，并提出了一种高效的 <strong>单层优化方法</strong> 来解决问题。</li>
+<li><strong>通过“奖励-策略等价性（reward-policy equivalence）”</strong>，使模型在在线 RLHF 过程中能够<strong>更有效地探索新的答案并优化偏好标签</strong>，从而<strong>避免分布偏移，提升自我改进的能力</strong>。</li>
+<li>这不仅<strong>统一了以往的在线 RLHF 方法</strong>（将它们作为特例），还提供了一种<strong>更稳定、更高效的对齐方式</strong>，减少了计算开销。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>[!CAUTION]</p>
+<p>是否有统一框架和分布偏移问题似乎是大家一直在解决的问题</p>
+</blockquote>
+<hr>
+<p>RLHF中离散和在线区别在于数据是否固定，训练开始之后是否会接触新的数据</p>
+<p>RLHF完整训练流程：</p>
+<ul>
+<li>SFT监督微调让模型学习基础的高质量回答，这个阶段只是让LLM具备基本的问答能力，这个回答风格没有完全对齐人类的期望</li>
+<li><strong>训练一个奖励模型（Reward Model, RM）</strong>，让它能自动评估 LLM 生成的回答，并打分。<ul>
+<li>让 LLM 生成多个不同版本的回答</li>
+<li>让<strong>人工标注者</strong> 对 LLM 生成的多个回答进行<strong>质量排序</strong>（从最佳到最差），生成一个带偏好的数据集，用于训练奖励模型</li>
+<li>RM（奖励模型）学会模仿人类的打分方式，使用比较方式训练（就是告诉Plan A&gt; Plan B，而不是直接训练具体的数值），损失函数使用Bradley-Terry 模型（用于比较两个选项的统计模型）或者对比学习损失</li>
+<li>让 RM 替代人类进行自动打分</li>
+</ul>
+</li>
+<li>用强化学习来优化 LLM，使其更加符合人类偏好</li>
+</ul>
+<p>Online (Iterative) RLHF</p>
+<ul>
+<li>SFT，一个<strong>经过初步微调的 LLM</strong>，但仍然可能生成不符合人类偏好的回答，只是具有基本的回答能力</li>
+<li>训练一个奖励模型，让它学会像人类一样评估 LLM 生成的回答质量，并给出评分（同上）</li>
+<li>在线强化学习优化 LLM（RL 训练 LLM），让 LLM 生成的回答越来越符合人类偏好</li>
+<li>数据 &amp; 偏好反馈的动态更新:会将更高的成对直接加进数据集之后接着训练</li>
+</ul>
+<p><img src="/../../../Pictures/image-20250311194021540.png" alt="image-20250311194021540"></p>
+<p><img src="/../../../Pictures/image-20250311202303371.png" alt="image-20250311202303371"></p>
+<h2 id="RLHF"><a href="#RLHF" class="headerlink" title="RLHF"></a>RLHF</h2><h3 id="标准三步程序"><a href="#标准三步程序" class="headerlink" title="标准三步程序"></a>标准三步程序</h3><ul>
+<li>step 0: SFT: 通过<strong>有监督学习（Supervised Learning）</strong> 在<strong>高质量的数据集</strong>上进行训练，使其初步掌握语言任务,仍然可能生成不符合人类偏好的回答，只是具有基本的回答能力</li>
+<li>step 1: reward learning(从人类偏好中学习奖励模型): 收集人类对不同回答的偏好数据，训练一个<strong>奖励模型（Reward Model, RM）</strong>，使其能够预测哪个回答更符合人类偏好。</li>
+<li>step 2: policy alignment via fine-tuning: 采用强化学习方法（如 <strong>PPO</strong>），让 LLM <strong>优化其回答策略，使其更符合人类偏好</strong></li>
+</ul>
+<h3 id="两种主要类别"><a href="#两种主要类别" class="headerlink" title="两种主要类别"></a>两种主要类别</h3><p><strong>离线 RLHF（Offline RLHF）</strong>：依赖<strong>预先收集的固定数据集</strong>进行对齐训练</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/09/SAIL/" data-id="cmdselqia0005twdphceafg72" data-title="SAIL" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/03/10/github%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          github仓库使用指南
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/03/09/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据挖掘</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/08/01/Github%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/01/ViT%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/23/leecode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/03/12/AutoDL%E4%BD%BF%E7%94%A8/">AutoDL使用</a>
+          </li>
+        
+          <li>
+            <a href="/2025/03/11/CoHD/">CoHD</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>CoHD | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="CoHD: A Counting-Aware Hierarchical Decoding Framework  for Generalized Referring Expression Segmentation 目前的GRES的问题：  多粒度目标信息被编码成单一表示 简单的二分类目标存在性判断导致歧义  论文贡献：提出CoHD框架，三个创新点  视觉-语言层次化构建  动态聚合集合内部选择和跨级">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CoHD">
+<meta property="og:url" content="http://example.com/2025/03/11/CoHD/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="CoHD: A Counting-Aware Hierarchical Decoding Framework  for Generalized Referring Expression Segmentation 目前的GRES的问题：  多粒度目标信息被编码成单一表示 简单的二分类目标存在性判断导致歧义  论文贡献：提出CoHD框架，三个创新点  视觉-语言层次化构建  动态聚合集合内部选择和跨级">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Pictures/image-20250315162722540.png">
+<meta property="og:image" content="http://example.com/2025/Pictures/image-20250315164059569.png">
+<meta property="og:image" content="http://example.com/2025/Pictures/image-20250315164244018.png">
+<meta property="og:image" content="http://example.com/2025/Pictures/image-20250315183757889.png">
+<meta property="article:published_time" content="2025-03-11T12:52:28.000Z">
+<meta property="article:modified_time" content="2025-03-15T14:17:15.108Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Pictures/image-20250315162722540.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-CoHD" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/11/CoHD/" class="article-date">
+  <time class="dt-published" datetime="2025-03-11T12:52:28.000Z" itemprop="datePublished">2025-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      CoHD
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>CoHD: A Counting-Aware Hierarchical Decoding Framework  for Generalized Referring Expression Segmentation</p>
+<p>目前的GRES的问题：</p>
+<ul>
+<li>多粒度目标信息被编码成单一表示</li>
+<li>简单的二分类目标存在性判断导致歧义</li>
+</ul>
+<p>论文贡献：提出CoHD框架，三个创新点</p>
+<ul>
+<li><p>视觉-语言层次化构建</p>
+<ul>
+<li>动态聚合集合内部选择和跨级选择</li>
+<li>充分利用层次化特征的互补性</li>
+</ul>
+</li>
+<li><p>目标计数能力</p>
+<ul>
+<li>类别级别监督：确保模型能理解目标类别</li>
+<li>计数级别监督：使模型能正确预测目标数量</li>
+</ul>
+</li>
+<li><p>处理复杂场景的能力</p>
+<ul>
+<li><strong>正确处理多目标场景（如“所有红色的车”）</strong></li>
+<li>正确处理单目标场景（如“左边的红色车”）</li>
+<li>正确处理无目标场景（如“没有红色车”）</li>
+</ul>
+</li>
+</ul>
+<p>指代表达分割（referring expression segmentation, RES）</p>
+<ul>
+<li><p>根据自然语言描述定位单个目标对象</p>
+</li>
+<li><p>传统方法</p>
+<ul>
+<li><p>基于卷积做跨模态融合，以生成分割掩码，没办法捕捉图形和文本之间的深层语义关联，而且一般假定一个句子必须对应一个目标</p>
+</li>
+<li><p>基于注意力机制的方法，可以建立图像中各部分与文本描述</p>
+<p>上面受到预定义规则的限定（一条句子必须匹配一个目标）</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>​	提出广义指代分割(GRES)，额外引入无目标和多目标</p>
+<ul>
+<li><p>ReLA提出大规模的GRES数据集gRefCOCO，增强对目标文职信息的感知能力，将GRES转换为相关区域的检索任务</p>
+</li>
+<li><p>Dynamic Multi-Modal Interaction (DMMI)：引入了新的基准数据集和基线模型，引入动态的多模态交互机制，实现超越单目标的分割，</p>
+<ul>
+<li>动态交互<ul>
+<li>传统方法：将图像特征和文本特征简单拼接或加权求和融合，忽略图像和文本复杂关系</li>
+<li>DMMI：设计动态加权机制，根据不同场景自动调整图像和文本之间交互强度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>RefSegformer ：赋予了基于Transformer的模型区分空目标句子的能力，引入新的基准数据集Ref-ZOM和R-RefCOCO</p>
+</li>
+<li><p>GSVA复用了 [SEG] 令牌，并额外引入了 [REJ] 令牌到 LISA之中，从而使多模态大模型（MLLM）具备GRES能力</p>
+</li>
+</ul>
+<p>这些方法倾向于将多粒度目标信息【不同层次的目标】编码到<strong>单一联合表示</strong>【将图像信息变成简单的格式，将图像和文本简单的结合】来生成分割掩码，而这种方式在GRES任务中难以有效推广。这种压缩到单一联合表示中，模型可能失去不同粒度信息的细节差异，可能会混淆不同目标的具体位置和特征，也没有办法清晰表示没有目标的信息</p>
+<p>而这篇文章使用以层次化方式聚合不同粒度的视觉-语言语义信息</p>
+<p>传统object counting</p>
+<ul>
+<li>预测图像中符合条件的目标数量<ul>
+<li>检测【区域】<ul>
+<li>目标区域提议（proposal localization）：生成一堆候选框</li>
+<li>目标排序（ranking）：选出最可能包含的区域计数</li>
+</ul>
+</li>
+<li>回归【每个位置的密度】<ul>
+<li>密度图【与输入图像大小相同，但其实每个像素值表示该位置的目标密度】，值是连续的，而不是有或者没有的二值信息，每个值代表该区域目标的数量或者密度，最后对目标图进行积分</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>提出的object counting</p>
+<ul>
+<li>query level上进行目标技术，考虑多目标&#x2F;单目标&#x2F;无目标进等不同场景，进行全面目标感知</li>
+</ul>
+<p>多目标场景需要模型能处理复杂的空间-文本关系；无目标强调模型充分利用上下文信息，避免被相似但非目标的对象误导</p>
+<p>直接从RES扩展到GRES有两个主要问题</p>
+<ul>
+<li>语义上下文不完整<ul>
+<li>用单一的特征表示来进行多粒度语义建模</li>
+</ul>
+</li>
+<li>目标感知不精确</li>
+</ul>
+<p>Counting-Aware Hierarchical Decoding（CoHD）</p>
+<ol>
+<li>复杂指代语义的解耦：层次化建模，将复杂的指代语义拆分成不同的力度，再逐层聚合</li>
+<li>多目标&#x2F;单目标区分机制：提出自适应目标技术模块（Adaptive Object Counting, AOC）,<strong>显式计数机制</strong>来精准区分<strong>多目标、单目标和无目标</strong>情况</li>
+</ol>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p><img src="/../../../Pictures/image-20250315162722540.png" alt="image-20250315162722540"></p>
+<ol>
+<li><p>图像-&gt;视觉骨干网络(Swin-Base)提取一组视觉特征$V_i$,之后通过deformable attention进一步编码为$V^m_i$。</p>
+</li>
+<li><p>文本表达E送进Transformer的语言编码器，生成词级别嵌入（细粒度表述）和句子级别嵌入（一般信息）</p>
+</li>
+<li><p>使用全连接层，将图像特征和文本特征映射要一个<strong>共享的联合空间D</strong>，为了让他们能相互作用V′&#x3D;FC(V),L′&#x3D;FC(L)</p>
+<p>SDM：负责生成语义图</p>
+</li>
+<li><p>生成粗语义图(coarse semantic map)</p>
+<p>通过注意力机制计算视觉特征和语言特征之间的匹配程度，生成一个粗语义图</p>
+</li>
+</ol>
+<img src="../../../Pictures/image-20250315164059569.png" alt="image-20250315164059569" style="zoom:50%;" />
+
+<ol start="5">
+<li><p>生成细粒度语义图（Fine-Grained Semantic Map S）</p>
+<p>使用注意力权重A，对视觉特征进行加权计算，得到更加精细的语义图S,表示哪些像素区域更可能是目标</p>
+</li>
+</ol>
+<p>​		<img src="../../../Pictures/image-20250315164244018.png" alt="image-20250315164244018" style="zoom:50%;" /></p>
+<ol start="6">
+<li><p>语义图用于目标分割：语义图S和L作为输入，进入层次语义解析器（HSD），对不同粒度的语义层次进行动态掩码解码，生成相应的目标分割 M</p>
+<ul>
+<li>通过学习的注意力权重将视觉和语言表示映射到注意力空间，生成更精确的语义图S</li>
+<li>通过层次化的多粒度视觉-语言匹配，生成视觉-语言语义的层次结构，用于动态聚合</li>
+<li>细粒度语义图 <strong>S</strong> 进行全连接层的映射，将其映射到查询空间，从而实现语言查询的再激活，确保更加全面的理解。</li>
+</ul>
+</li>
+<li><p><strong>自适应目标计数模块（AOC）</strong> 被设计用于提升不同场景下目标的精准感知，通过赋予目标计数能力来进行精细分割。现有的GRES方法使用二分类来判断目标是否存在，但是这种设计在GRES任务存在局限性：多目标和单目标被统一处理；语言重构方法【模型学习重新生成输入文本】的局限性</p>
+<p>AOC通过<strong>多模态语义查询（Multi-Modal Semantic Queries）</strong> 计算目标数量</p>
+<ul>
+<li><p>计算类别计数向量（Counting Vector），最终将所有层次的计数向量平均池化得到最终的综合计数预测值</p>
+</li>
+<li><p>计算目标计数损失（Losscount）</p>
+<p>计算目标计数值和真实计数值之间的平滑L1损失</p>
+</li>
+</ul>
+</li>
+<li><p>训练目标和损失函数</p>
+<ul>
+<li><p>掩码损失（Lossmask）:使用二元交叉熵损失计算预测分割掩码和真实掩码的差距</p>
+</li>
+<li><p>目标计算损失</p>
+</li>
+<li><p>目标存在性损失：在AOC上添加了一个轻量级的目标存在性判别头，之后使用交叉熵损失。目标存在性分类任务<strong>不会影响主框架的训练</strong>，它仅用于 GRES 评价任务，不会对模型的主要目标计数预测产生干扰</p>
+</li>
+<li><p>最终损失函数：</p>
+<img src="../../../Pictures/image-20250315183757889.png" alt="image-20250315183757889" style="zoom:45%;" /></li>
+</ul>
+</li>
+</ol>
+<p>HSD:传统方法使用传统的RES解码规范只使用最后一个融合特征，这个在传统的RES可以接受，因为它主要通过多模态交互匹配单一的目标，的但是在多目标可能会导致区域激活误解。可能导致信息丢失，而HSD采用层次化处理方式</p>
+<ul>
+<li>动态层次聚合（Dynamic Hierarchical Aggregation, DHA）：多尺度语义信息在不同层级进行结合，避免简单求和导致的信息丢失</li>
+<li>跨层选择机制（Inter-Selection &amp; Intra-Selection）<ul>
+<li>跨级选择（InterSelection）——找最重要的积木：通过门控电路分配不同<strong>特征层</strong>的权重，决定该层信息最最终分割的贡献大小（更加关注大颗粒还是小颗粒）</li>
+<li>内部选择（IntraSelection）——筛选最优信息：使用通道注意力动态调整每个特征图的响应，使得与目标匹配的区域更突出，其他区域的激活被抑制。（决定该层的那部分最重要）</li>
+<li>加权聚合：确保所有层的信息都被合理利用<ul>
+<li><strong>第一步</strong>：先对最低层（最粗粒度）信息进行加权</li>
+<li><strong>第二步</strong>：通过<strong>上采样（Up）</strong>，让低层特征的信息逐步传递到更高层，同时结合高层特征</li>
+<li>最终得到高质量的目标分割掩码</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>gIoU: 解决IoU没有交集情况的局限性</p>
+<p>Semantic Decoding Module, SDM</p>
+<ul>
+<li>mask generation：</li>
+<li>query refinement</li>
+</ul>
+<h2 id="Method-1"><a href="#Method-1" class="headerlink" title="Method"></a>Method</h2><p><strong>视觉骨干网络（Backbone）</strong>：Swin Transformer </p>
+<p><strong>文本编码器（Language Backbone）</strong>：BERT </p>
+<p>ReLA是之前最强的GRES方法</p>
+<p>消融实验</p>
+<ul>
+<li>在gRefCOCO验证集使用Swin-Tiny作为视觉骨干进行消融实验<ul>
+<li>HSD 和 AOC 模块的有效性<ul>
+<li>单独使用HSD</li>
+<li>单独使用AOC</li>
+<li>HSD+AOC</li>
+</ul>
+</li>
+<li>HSD内部组件分析<ul>
+<li>SDM</li>
+<li>DHA</li>
+</ul>
+</li>
+<li>目标存在性识别<ul>
+<li>二分类</li>
+<li>AOC计数头</li>
+</ul>
+</li>
+<li>内部选择&amp;跨级选择</li>
+<li>掩码解码方式<ul>
+<li>逐层监督</li>
+<li>层次聚合</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>创新点</p>
+<ul>
+<li>动态层次聚合（DHA）</li>
+<li>内部选择</li>
+<li>跨级选择</li>
+<li>AOC</li>
+</ul>
+<hr>
+<p>一般视觉特征提取用的都是CNN(ResNet&#x2F; Swin Transformer)，传统方法通常只使用最深层的特征，传统方法只使用句子级别的嵌入，而不会使用每个词的详细信息，之后传统方法将视觉特征的最后一层和文本特征的句子嵌入进行简单的融合，比如特征拼接&#x2F;线性变换，之后使用融合之后的单一特征F进行预测分割掩码</p>
+<hr>
+<p>消融实验：逐个移除不同的模块，观察性能；组合移除</p>
+<hr>
+<p>逐层监督：</p>
+<ul>
+<li>模型多个层级上添加额外的监督信号，不只在最终输出进行监督</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/11/CoHD/" data-id="cmdselqi70002twdp25aigi1z" data-title="CoHD" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/03/12/AutoDL%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          AutoDL使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/03/11/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">强化学习</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/08/01/Github%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/01/ViT%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/23/leecode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/03/12/AutoDL%E4%BD%BF%E7%94%A8/">AutoDL使用</a>
+          </li>
+        
+          <li>
+            <a href="/2025/03/11/CoHD/">CoHD</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

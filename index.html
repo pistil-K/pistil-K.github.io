@@ -71,229 +71,147 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-数据挖掘" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-Github基本操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/03/09/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" class="article-date">
-  <time class="dt-published" datetime="2025-03-09T08:25:06.000Z" itemprop="datePublished">2025-03-09</time>
+    <a href="/2025/08/01/Github%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2025-08-01T05:48:57.039Z" itemprop="datePublished">2025-08-01</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/09/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="一、绪论"><a href="#一、绪论" class="headerlink" title="一、绪论"></a>一、绪论</h1><p>1.什么是数据挖掘 </p>
-<p>在一个大型的数据库里面可以自动发现有用信息，也可以预测未来的结果</p>
-<p>注意区分于信息检索，这个重点在索引</p>
-<p>KDD(knowledge discovery in database): 将未加工数据转化为有用信息<br><img src="/../images/KDD.png" alt="图片1"></p>
-<ul>
-<li>preprocessing: 将未加工输入数据转换成适合分析的形式。步骤包括<ul>
-<li>融合多个来自数据源的数据</li>
-<li>清洗数据以消除噪声和重复观测值</li>
-<li>选择与当前数据挖掘任务相关的记录和特征</li>
-</ul>
+        <h1 id="Github基本操作"><a href="#Github基本操作" class="headerlink" title="Github基本操作"></a>Github基本操作</h1><h4 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a><strong>初始化仓库</strong></h4><ul>
+<li><p>创建本地仓库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init  <span class="comment"># 初始化空仓库</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>closing thw loop: 数据挖掘结果集成倒决策支持系统的过程</li>
+<li><p>克隆远程仓库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/user/repo.git</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>1.2 数据挖掘要解决的问题</p>
-<p>1.4 数据挖掘的任务</p>
-<p>一般分为两大类</p>
-<ul>
-<li><p>预测任务</p>
-<ul>
-<li>预测建模：任务就是分类和回归</li>
-</ul>
+<h4 id="提交更改"><a href="#提交更改" class="headerlink" title="提交更改"></a><strong>提交更改</strong></h4><ul>
+<li><p>查看状态：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>描述任务：导出概况数据中潜在联系的模式(相关、趋势、聚类、轨迹和异常)</p>
-<ul>
-<li>聚类分析<ul>
-<li>紧密相关的观测值组群</li>
-</ul>
+<li><p>添加文件到暂存区：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .  <span class="comment"># 添加所有文件</span></span><br><span class="line">git add file.txt  <span class="comment"># 添加单个文件</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>关联分析<ul>
-<li>描述数据中强关联模型，一般是蕴含规则或特征子集的形式。</li>
+<li><p>提交更改：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;提交说明&quot;</span></span><br></pre></td></tr></table></figure></li>
 </ul>
+<h4 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a><strong>分支管理</strong></h4><ul>
+<li><p>查看分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
 </li>
-<li>异常检测</li>
+<li><p>创建新分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch new-branch</span><br><span class="line">git checkout new-branch  <span class="comment"># 或 git switch new-branch</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>合并分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge feature-branch  <span class="comment"># 在主分支合并功能分支</span></span><br></pre></td></tr></table></figure></li>
 </ul>
+<h4 id="推送与拉取"><a href="#推送与拉取" class="headerlink" title="推送与拉取"></a><strong>推送与拉取</strong></h4><ul>
+<li><p>推送本地更改到远程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin main  <span class="comment"># 推送到main分支</span></span><br></pre></td></tr></table></figure>
 </li>
+<li><p>拉取远程更新：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>e.g.这里说监视病人心率异常变化&#x2F;地震活动的地震波都是数据挖掘任务，因为之后还要做大量分析(这里不太认同，它明明只说监视，又没说分析)；而提取声波频率不是数据挖掘任务，因为它只是特征提取</p>
-<h1 id="第二章-数据"><a href="#第二章-数据" class="headerlink" title="第二章 数据"></a>第二章 数据</h1><h2 id="2-1-数据类型"><a href="#2-1-数据类型" class="headerlink" title="2.1 数据类型"></a>2.1 数据类型</h2><h3 id="2-1-1-属性与度量"><a href="#2-1-1-属性与度量" class="headerlink" title="2.1.1 属性与度量"></a>2.1.1 属性与度量</h3><ol>
-<li><p>属性包含符号属性(具有少量的可能的值)和数值属性(可以取无穷个值)</p>
+<h3 id="3-GitHub协作"><a href="#3-GitHub协作" class="headerlink" title="3. GitHub协作"></a><strong>3. GitHub协作</strong></h3><h4 id="Fork与Pull-Request"><a href="#Fork与Pull-Request" class="headerlink" title="Fork与Pull Request"></a><strong>Fork与Pull Request</strong></h4><ol>
+<li><p><strong>Fork仓库</strong>：在GitHub页面点击”Fork”按钮，复制仓库到你的账户。</p>
 </li>
-<li><p>测量标度：将数值或符号值与对象的属性相关联的规则（函数）</p>
+<li><p>克隆Forked仓库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/your_username/forked_repo.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>修改代码</strong>，提交到你的Forked仓库。</p>
+</li>
+<li><p><strong>发起Pull Request (PR)</strong>：<br>在GitHub页面点击”New Pull Request”，选择你的分支和原仓库的分支，提交PR。</p>
 </li>
 </ol>
-<h3 id="2-1-2数据集的类型"><a href="#2-1-2数据集的类型" class="headerlink" title="2.1.2数据集的类型"></a>2.1.2数据集的类型</h3><p>一般将数据集类型分为三组：记录数据、基于图形的数据和有序数据</p>
+<h4 id="Issue与Project管理"><a href="#Issue与Project管理" class="headerlink" title="Issue与Project管理"></a><strong>Issue与Project管理</strong></h4><ul>
+<li><strong>创建Issue</strong>：在仓库页面点击”Issues” &gt; “New Issue”，描述问题或需求。</li>
+<li><strong>使用Project Board</strong>：组织任务（To-do、In Progress、Done）。</li>
+</ul>
+<h3 id="4-其他实用功能"><a href="#4-其他实用功能" class="headerlink" title="4. 其他实用功能"></a><strong>4. 其他实用功能</strong></h3><ul>
+<li><p><strong>GitHub Pages</strong>：托管静态网站（如个人博客）。</p>
+<ul>
+<li><p>创建内容</p>
+<ul>
+<li><p>写文章：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My First Post&quot;</span>  <span class="comment"># 生成文章模板</span></span><br></pre></td></tr></table></figure>
+
+<p>文章保存在<code>source/_posts/</code>目录下，使用Markdown格式。</p>
+</li>
+<li><p>添加页面（如关于页）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;about&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>本地预览</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate  <span class="comment"># 生成静态文件</span></span><br><span class="line">hexo server    <span class="comment"># 启动本地服务器</span></span><br></pre></td></tr></table></figure>
+
+<p>访问<code>http://localhost:4000</code>查看效果。</p>
+<ul>
+<li>选择主题</li>
+</ul>
 <ol>
-<li>数据集的一般特性</li>
+<li><p>浏览Hexo主题库，下载喜欢的主题（如next）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在_config.yml中启用主题：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <ul>
-<li>维度：数据集的维度是数据集中对象具有的属性数目。分析高维数据有时会陷入维灾难。因此数据预处理一个重要动机就是减少维度，称为维归约</li>
-<li>稀疏性：数据集，如具有非对称特征的数据集，一个对象的大部分属性上的值都为0。实际上，稀疏性是一个优点，只有非0值才需要存储和处理。着将节省大量的计算时间和存储空间。此外，有些数据挖掘算法仅适合处理稀疏数据。</li>
-<li>分辨率：常常可以在不同分辨率下得到数据，并且在不同分辨率下数据的性质不同。数据的模式也依赖于分辨率</li>
-</ul>
-<ol start="2">
-<li>记录数据</li>
+<li><p>部署到GitHub Pages</p>
+<ol>
+<li>在GitHub创建仓库（名称必须为<code>yourusername.github.io</code>）。</li>
+<li>配置Hexo的<code>_config.yml</code>中的部署信息。</li>
+<li>生成并部署：</li>
 </ol>
-<p>数据集是记录（数据对象）（一行行）的汇总，每个记录包含固定的数据字段（属性）集。每个记录（对象）有相同的属性集。记录数据通常放在平展文件或关系数据库里。</p>
-<p>不同类型的记录数据：</p>
-<p><img src="/../images/type_of_document.png" alt="image-20250309212054888"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean  <span class="comment"># 清除缓存</span></span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>访问<code>https://yourusername.github.io</code>查看博客。</p>
+</li>
+<li><p>常用命令</p>
 <ul>
-<li><p>记录数据</p>
+<li><p>更新文章：直接编辑<code>source/_posts/</code>中的文件</p>
+</li>
+<li><p>重新生成静态文件：<code>hexo generate</code></p>
+</li>
+<li><p>部署更新：<code>hexo deploy</code></p>
+</li>
+</ul>
+</li>
+<li><p>高级配置</p>
 <ul>
-<li>每一行独立的、完整的数据条目</li>
-</ul>
+<li><p>自定义域名：在博客根目录添加<code>CNAME</code>文件，写入你的域名。</p>
 </li>
-<li><p>事务数据（购物篮数据）</p>
-<ul>
-<li>某一特定交易或者活动的数据</li>
-</ul>
+<li><p>添加评论系统（如Disqus、Valine）。</p>
 </li>
-<li><p>数据矩阵（模式矩阵）</p>
-<ul>
-<li>通过行和列的形式展示数据，行代表个体，列代表特征或变量</li>
-</ul>
-</li>
-<li><p>稀疏数据矩阵（文档-词矩阵）</p>
-</li>
-</ul>
-<ol start="3">
-<li>基于图像的数据<ul>
-<li>图形捕获数据对象之间的联系</li>
-<li>数据对象本身用图形表示：数据有结构（有子对象），经常用图形表示。e.g.苯；可以查找频繁出现的子结构。</li>
-</ul>
-</li>
-<li>有序数据<ul>
-<li>时序数据（时间数据）：每条记录多记了一条和时间相关的数据</li>
-<li>序列数据：和时序序列区别只是没有时间戳，它考虑项的位置</li>
-<li>时间序列数据：特殊时序数据，一段时间的测量序列，性质：拥有时间自相关，如果测量时间很近，测量的值通常相似。e.g. 某个地区从1982倒1994年的月平均气温的时间序列</li>
-<li>空间数据：空间自相关性，物理上靠近的对象趋向于在其他方面也相似</li>
-</ul>
-</li>
-<li>处理非记录数据<ul>
-<li>大部分数据挖掘算法都是为记录数据及其变体设计，通过从数据对象中提取特征，并使用这些特征创建对应于每个对象的记录，但是也可以记录非记录数据（图和有序数据）</li>
-<li>比如：每个化合物都可以用一个具有二元属性的记录表示，判断化合物是否包含子结构。实际上是事务数据集，事务时化合物，项是子结构</li>
-</ul>
-</li>
-</ol>
-<h2 id="2-2-数据质量"><a href="#2-2-数据质量" class="headerlink" title="2.2 数据质量"></a>2.2 数据质量</h2><p>对于数据质量，数据挖掘着手与两个方面：（1）数据质量问题的检查和纠正（数据清理）；（2）使用可以容忍低质量数据的算法</p>
-<h3 id="2-2-1-测量和数据收集问题"><a href="#2-2-1-测量和数据收集问题" class="headerlink" title="2.2.1 测量和数据收集问题"></a>2.2.1 测量和数据收集问题</h3><ol>
-<li>测量误差和数据收集误差<ul>
-<li>测量误差：测量过程中导致的问题</li>
-<li>数据收集误差：遗漏数据对象或属性值，或不当地包含其他数据对象等错误</li>
-<li>上面两种错误可能是系统的也可能是随机的</li>
-</ul>
-</li>
-<li>噪声和伪影<ul>
-<li>噪声是测量误差的随机部分。很多数据挖掘算法都关注设计鲁棒算法，即在噪声干扰下也能产生可以接受的结果</li>
-</ul>
-</li>
-<li>精度、偏倚和精确率<ul>
-<li>精度：多次测量结果是否接近，结果的一致性</li>
-<li>偏倚：结果的准确性，关注的是测量是否存在<strong>系统性误差</strong>，即结果是否始终以某种固定的方式偏离真实值</li>
-</ul>
-</li>
-<li>离群点</li>
-<li>遗漏值<ul>
-<li>针对遗漏值的策略<ul>
-<li>删除数据对象或属性</li>
-<li>估计遗漏值</li>
-<li>在分析时忽略遗漏值：使用没有遗漏值的属性聚类</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>不一致的值</li>
-<li>重复数据</li>
-</ol>
-<h3 id="2-2-2-关于应用的问题"><a href="#2-2-2-关于应用的问题" class="headerlink" title="2.2.2 关于应用的问题"></a>2.2.2 关于应用的问题</h3><ul>
-<li>时效性</li>
-<li>相关性<ul>
-<li>抽样偏倚</li>
-</ul>
-</li>
-<li>有关数据的知识：数据集文档应该给出属性强相关（高度冗余，可以留其一）；遗漏值表示；数据精度；特征的类型（标称的、序数的、区间的、比率的）、测量的刻度（如长度用米还是英尺）和数据的来源</li>
-</ul>
-<h2 id="2-3-数据预处理"><a href="#2-3-数据预处理" class="headerlink" title="2.3 数据预处理"></a>2.3 数据预处理</h2><ol>
-<li><p>聚类</p>
-<ul>
-<li>聚类动机<ul>
-<li>数据归约：较少的内存和处理时间，可以使用开销更大的数据挖掘算法</li>
-</ul>
-</li>
-<li>聚类的缺点<ul>
-<li>可能丢失有趣的细节</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>抽样</p>
-<ul>
-<li><p>统计学使用抽样是因为得到感兴趣的整个数据集的费用太高、太浪费时间</p>
-</li>
-<li><p>数据挖掘使用抽样是因为处理所有数据费用太高，太浪费时间</p>
-<p>（1）抽样方法</p>
-<ul>
-<li>简单随机抽样<ul>
-<li>无放回抽样</li>
-<li>有放回抽样（分析简单）</li>
-</ul>
-</li>
-<li>分层抽样<ul>
-<li>变形：从每一组抽取的对象数量正比于该组的大小</li>
-</ul>
-</li>
-</ul>
-<p>（2）渐近抽样</p>
-<ul>
-<li>合适的样本容量很难确定，因此使用自适应或渐近抽样</li>
-<li>从小样本开始，逐渐增加容量知道得到足够大的样本，最后要评估样本容量是否足够大</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>维规约</p>
-<ul>
-<li>好处<ul>
-<li>维归约可以删除不相关的特征并降低噪声，避免维灾难</li>
-<li>可以使模型更容易理解</li>
-<li>维规约更容易让数据可视化</li>
-</ul>
-</li>
-<li>做法<ul>
-<li>创建新属性将旧属性合并。通过选择旧属性的子集得到新属性，这种维规约称为特征子集选择或者特征选择</li>
-</ul>
-</li>
-<li>维灾难<ul>
-<li>维度增加，数据所占空间越来越稀疏。分类和聚类效果都下降</li>
-<li>维规约的线性代数技术<ul>
-<li>对于连续数据，主成分分析（PCA）：找出新的属性（主成分），这些属性是原属性的线性组合，新属性之间是相互正交的，捕获数据最大变差（尽可能全面地获取数据中所包含的差异、变化或波动信息）</li>
-<li>奇异值分解（SVD）</li>
-</ul>
+<li><p>配置SEO（修改<code>_config.yml</code>中的元数据）。</p>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-</ol>
+<li><p><strong>GitHub Actions</strong>：自动化CI&#x2F;CD（持续集成&#x2F;部署）。</p>
+</li>
+<li><p><strong>GitHub Copilot</strong>：AI辅助编程（需订阅）。</p>
+</li>
+</ul>
+<h3 id="5-常见问题"><a href="#5-常见问题" class="headerlink" title="*5. 常见问题"></a>*<em>5. 常见问题</em></h3><ul>
+<li><p>解决冲突：当多人编辑同一文件时，手动合并冲突：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git pull --rebase</span><br><span class="line"><span class="comment"># 打开冲突文件手动修改，然后：</span></span><br><span class="line">git add file.txt</span><br><span class="line">git rebase --<span class="built_in">continue</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>撤销更改：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD  <span class="comment"># 恢复到最近一次提交</span></span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/09/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" data-id="cm81snc5h0001gcdp4jwp8ku5" data-title="数据挖掘" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/08/01/Github%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-id="cmdselqi80003twdpem8c6rfg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -305,10 +223,136 @@
 
 
   
-    <article id="post-CLIP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-ViT数字识别" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/03/09/CLIP/" class="article-date">
-  <time class="dt-published" datetime="2025-03-09T06:21:28.000Z" itemprop="datePublished">2025-03-09</time>
+    <a href="/2025/08/01/ViT%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/" class="article-date">
+  <time class="dt-published" datetime="2025-08-01T05:09:25.795Z" itemprop="datePublished">2025-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ViT数字识别"><a href="#ViT数字识别" class="headerlink" title="ViT数字识别"></a>ViT数字识别</h1><h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>ViT的核心思想是将图像视为一系列<strong>序列化patch</strong>，并用Transformer处理这些patch，类似于处理文本中的单词。具体步骤如下：</p>
+<ol>
+<li><strong>图像分割</strong>：将输入图像划分为固定大小的patch（例如16×16像素）。</li>
+<li><strong>线性投影</strong>：将每个patch展平为一维向量，并通过线性变换（矩阵乘法）映射到固定维度（如768维）。</li>
+<li><strong>添加Class Token</strong>：在序列开头插入一个可学习的向量，用于最终分类。</li>
+<li><strong>位置编码</strong>：添加位置信息（可学习或固定）。</li>
+<li><strong>Transformer编码器</strong>：通过多层Transformer处理序列。</li>
+<li><strong>分类头</strong>：对Class Token的输出进行线性变换得到类别概率。</li>
+</ol>
+<h2 id="关键组件"><a href="#关键组件" class="headerlink" title="关键组件"></a>关键组件</h2><h3 id="2-1-Patch-Embedding"><a href="#2-1-Patch-Embedding" class="headerlink" title="2.1 Patch Embedding"></a>2.1 Patch Embedding</h3><ul>
+<li>将图像分割为<em>N</em>个非重叠patch（如224×224图像划分为14×14&#x3D;196个16×16patch）。</li>
+<li>每个patch展平为一维向量（如16×16×3&#x3D;768维）。</li>
+<li>通过线性变换$W_p$将维度映射到模型维度<em>D</em>（如768→768）。</li>
+</ul>
+<h3 id="2-2-Class-Token"><a href="#2-2-Class-Token" class="headerlink" title="2.2 Class Token"></a>2.2 Class Token</h3><ul>
+<li>在序列开头插入一个可学习向量<strong>c</strong>，形状为[1,1,<em>D</em>]。</li>
+<li>最终分类时只使用该token的输出。</li>
+</ul>
+<h3 id="2-3-位置编码"><a href="#2-3-位置编码" class="headerlink" title="2.3 位置编码"></a>2.3 位置编码</h3><ul>
+<li>与原始Transformer类似，可以使用可学习的位置嵌入或正弦位置编码。</li>
+<li>形状为[1,<em>N</em>+1,<em>D</em>]（包含Class Token）。</li>
+</ul>
+<h3 id="2-4-Transformer编码器"><a href="#2-4-Transformer编码器" class="headerlink" title="2.4 Transformer编码器"></a>2.4 Transformer编码器</h3><p>通过12层Transformer处理序列。以第一层为例：</p>
+<p><img src="/../../../Pictures/image-20250801132317468.png" alt="image-20250801132317468"></p>
+<h2 id="3-模型结构"><a href="#3-模型结构" class="headerlink" title="3. 模型结构"></a>3. 模型结构</h2><p>ViT的结构通常表示为ViT-Base&#x2F;16，其中：</p>
+<ul>
+<li>“Base”表示模型尺寸（隐层维度768，注意力头12，MLP维度3072，层数12）。</li>
+<li>“&#x2F;16”表示patch大小为16×16。</li>
+</ul>
+<h2 id="4-维度变化"><a href="#4-维度变化" class="headerlink" title="4. 维度变化"></a>4. 维度变化</h2><ul>
+<li>N是patch的数量</li>
+<li>D是投影后的维度</li>
+</ul>
+<p>序列化：[1,N,D]</p>
+<p>class token：[1,1,D]</p>
+<p>现在把序列化和class token之后维度是[1,N+1,D]</p>
+<p>位置编码[1,N+1,D]</p>
+<p>之后把两个逐个元素相加[1,N+]</p>
+<h2 id="5-优缺点"><a href="#5-优缺点" class="headerlink" title="5. 优缺点"></a>5. 优缺点</h2><p>优点：可以捕获长距离依赖（优于局部卷积）</p>
+<p>缺点：对小数据容易过拟合</p>
+<h2 id="6-扩展与改进"><a href="#6-扩展与改进" class="headerlink" title="6. 扩展与改进"></a>6. 扩展与改进</h2><h3 id="6-1-DeiT（Data-efficient-Image-Transformers）"><a href="#6-1-DeiT（Data-efficient-Image-Transformers）" class="headerlink" title="6.1 DeiT（Data-efficient Image Transformers）"></a>6.1 DeiT（Data-efficient Image Transformers）</h3><ul>
+<li>通过蒸馏（Distillation）减少训练数据需求。</li>
+<li>引入Teacher-Student框架。</li>
+</ul>
+<h3 id="6-2-Swin-Transformer"><a href="#6-2-Swin-Transformer" class="headerlink" title="6.2 Swin Transformer"></a>6.2 Swin Transformer</h3><ul>
+<li>通过滑动窗口局部注意力降低计算量。</li>
+<li>在下游任务（如检测、分割）中表现突出。</li>
+</ul>
+<h3 id="6-3-ConvNeXt"><a href="#6-3-ConvNeXt" class="headerlink" title="6.3 ConvNeXt"></a>6.3 ConvNeXt</h3><ul>
+<li>结合CNN的局部性与Transformer的全局性。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/01/ViT%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/" data-id="cmdselqi90004twdpe1qjcfqs" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-leecode刷题记录" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/07/23/leecode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time class="dt-published" datetime="2025-07-23T05:06:57.842Z" itemprop="datePublished">2025-07-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="leecode刷题记录"><a href="#leecode刷题记录" class="headerlink" title="leecode刷题记录"></a>leecode刷题记录</h1><h3 id="哈希表语法"><a href="#哈希表语法" class="headerlink" title="哈希表语法"></a>哈希表语法</h3><p>unordered_map&lt;int,int&gt; map；</p>
+<p>map.count(target)或者map.find(target)!&#x3D;end()</p>
+<h3 id="vector语法"><a href="#vector语法" class="headerlink" title="vector语法"></a>vector语法</h3><p>插入数组：mp.push_back(i)</p>
+<p>数组向量构建：注意他后面是(): vector<int> s_mat(26)</p>
+<h3 id="200-岛屿数量"><a href="#200-岛屿数量" class="headerlink" title="200. 岛屿数量"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-islands/">200. 岛屿数量</a></h3><p>思路：DFS-&gt;找到岛屿标记为1，之后对这个附近进行dfs搜索把他们都变成0【需要一个dfs的辅助函数】</p>
+<img src="C:/Users/86139/Pictures/image-20250722183032303.png" alt="image-20250722183032303" style="zoom:33%;" />
+
+<h3 id="560-和为-K-的子数组"><a href="#560-和为-K-的子数组" class="headerlink" title="560. 和为 K 的子数组"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/subarray-sum-equals-k/">560. 和为 K 的子数组</a></h3><p>前缀和vector+哈希表查询</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mp.<span class="built_in">find</span>(pre - k) != mp.<span class="built_in">end</span>()</span><br></pre></td></tr></table></figure>
+
+<h2 id="无重复字符的最长子串"><a href="#无重复字符的最长子串" class="headerlink" title="无重复字符的最长子串"></a>无重复字符的最长子串</h2><p>滑动窗口法</p>
+<p>左右指针+哈希表（记录这个字符在不在哈希表里）</p>
+<p>思路：右指针移动，查询字符是否出现在哈希表里，如果出现，就让左指针移动到这个之前出现位置的下一个</p>
+<p>注意特殊情况：左指针更新时候防止边界（回退）——取最大</p>
+<h2 id="找到字符串种所有字面异位词"><a href="#找到字符串种所有字面异位词" class="headerlink" title="找到字符串种所有字面异位词"></a>找到字符串种所有字面异位词</h2><p>固定滑动窗口+数组统计</p>
+<p>异位词：字母的类型和频率都完全相同</p>
+<p>思路：两个频率数组（可以直接相等比较）【26个字符】，初始之后右滑，右侧字符个数放进去，之后左侧字符拿出去</p>
+<p>注意一些边界问题要好好考虑</p>
+<p>考虑特殊情况（s比p小），返回空向量return vector<int>()</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/07/23/leecode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/" data-id="cmdselqib0007twdp0al2gpmb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-AutoDL使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/12/AutoDL%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2025-03-11T16:55:05.000Z" itemprop="datePublished">2025-03-12</time>
 </a>
     
   </div>
@@ -319,7 +363,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/09/CLIP/">CLIP</a>
+      <a class="p-name article-title" href="/2025/03/12/AutoDL%E4%BD%BF%E7%94%A8/">AutoDL使用</a>
     </h1>
   
 
@@ -327,56 +371,265 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Learning-Transferable-Visual-Models-From-Natural-Language-Supervision"><a href="#Learning-Transferable-Visual-Models-From-Natural-Language-Supervision" class="headerlink" title="Learning Transferable Visual Models From Natural Language Supervision"></a>Learning Transferable Visual Models From Natural Language Supervision</h1><p>利用自然语言的监督信号去学习迁移好的视觉模型</p>
+        <p>rm -rf &#x2F;root&#x2F;.cache&#x2F;*清除根目录下缓存</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/12/AutoDL%E4%BD%BF%E7%94%A8/" data-id="cmdselqhy0000twdp2zovc6jm" data-title="AutoDL使用" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-CoHD" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/11/CoHD/" class="article-date">
+  <time class="dt-published" datetime="2025-03-11T12:52:28.000Z" itemprop="datePublished">2025-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/03/11/CoHD/">CoHD</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>CoHD: A Counting-Aware Hierarchical Decoding Framework  for Generalized Referring Expression Segmentation</p>
+<p>目前的GRES的问题：</p>
+<ul>
+<li>多粒度目标信息被编码成单一表示</li>
+<li>简单的二分类目标存在性判断导致歧义</li>
+</ul>
+<p>论文贡献：提出CoHD框架，三个创新点</p>
+<ul>
+<li><p>视觉-语言层次化构建</p>
+<ul>
+<li>动态聚合集合内部选择和跨级选择</li>
+<li>充分利用层次化特征的互补性</li>
+</ul>
+</li>
+<li><p>目标计数能力</p>
+<ul>
+<li>类别级别监督：确保模型能理解目标类别</li>
+<li>计数级别监督：使模型能正确预测目标数量</li>
+</ul>
+</li>
+<li><p>处理复杂场景的能力</p>
+<ul>
+<li><strong>正确处理多目标场景（如“所有红色的车”）</strong></li>
+<li>正确处理单目标场景（如“左边的红色车”）</li>
+<li>正确处理无目标场景（如“没有红色车”）</li>
+</ul>
+</li>
+</ul>
+<p>指代表达分割（referring expression segmentation, RES）</p>
+<ul>
+<li><p>根据自然语言描述定位单个目标对象</p>
+</li>
+<li><p>传统方法</p>
+<ul>
+<li><p>基于卷积做跨模态融合，以生成分割掩码，没办法捕捉图形和文本之间的深层语义关联，而且一般假定一个句子必须对应一个目标</p>
+</li>
+<li><p>基于注意力机制的方法，可以建立图像中各部分与文本描述</p>
+<p>上面受到预定义规则的限定（一条句子必须匹配一个目标）</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>​	提出广义指代分割(GRES)，额外引入无目标和多目标</p>
+<ul>
+<li><p>ReLA提出大规模的GRES数据集gRefCOCO，增强对目标文职信息的感知能力，将GRES转换为相关区域的检索任务</p>
+</li>
+<li><p>Dynamic Multi-Modal Interaction (DMMI)：引入了新的基准数据集和基线模型，引入动态的多模态交互机制，实现超越单目标的分割，</p>
+<ul>
+<li>动态交互<ul>
+<li>传统方法：将图像特征和文本特征简单拼接或加权求和融合，忽略图像和文本复杂关系</li>
+<li>DMMI：设计动态加权机制，根据不同场景自动调整图像和文本之间交互强度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>RefSegformer ：赋予了基于Transformer的模型区分空目标句子的能力，引入新的基准数据集Ref-ZOM和R-RefCOCO</p>
+</li>
+<li><p>GSVA复用了 [SEG] 令牌，并额外引入了 [REJ] 令牌到 LISA之中，从而使多模态大模型（MLLM）具备GRES能力</p>
+</li>
+</ul>
+<p>这些方法倾向于将多粒度目标信息【不同层次的目标】编码到<strong>单一联合表示</strong>【将图像信息变成简单的格式，将图像和文本简单的结合】来生成分割掩码，而这种方式在GRES任务中难以有效推广。这种压缩到单一联合表示中，模型可能失去不同粒度信息的细节差异，可能会混淆不同目标的具体位置和特征，也没有办法清晰表示没有目标的信息</p>
+<p>而这篇文章使用以层次化方式聚合不同粒度的视觉-语言语义信息</p>
+<p>传统object counting</p>
+<ul>
+<li>预测图像中符合条件的目标数量<ul>
+<li>检测【区域】<ul>
+<li>目标区域提议（proposal localization）：生成一堆候选框</li>
+<li>目标排序（ranking）：选出最可能包含的区域计数</li>
+</ul>
+</li>
+<li>回归【每个位置的密度】<ul>
+<li>密度图【与输入图像大小相同，但其实每个像素值表示该位置的目标密度】，值是连续的，而不是有或者没有的二值信息，每个值代表该区域目标的数量或者密度，最后对目标图进行积分</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>提出的object counting</p>
+<ul>
+<li>query level上进行目标技术，考虑多目标&#x2F;单目标&#x2F;无目标进等不同场景，进行全面目标感知</li>
+</ul>
+<p>多目标场景需要模型能处理复杂的空间-文本关系；无目标强调模型充分利用上下文信息，避免被相似但非目标的对象误导</p>
+<p>直接从RES扩展到GRES有两个主要问题</p>
+<ul>
+<li>语义上下文不完整<ul>
+<li>用单一的特征表示来进行多粒度语义建模</li>
+</ul>
+</li>
+<li>目标感知不精确</li>
+</ul>
+<p>Counting-Aware Hierarchical Decoding（CoHD）</p>
+<ol>
+<li>复杂指代语义的解耦：层次化建模，将复杂的指代语义拆分成不同的力度，再逐层聚合</li>
+<li>多目标&#x2F;单目标区分机制：提出自适应目标技术模块（Adaptive Object Counting, AOC）,<strong>显式计数机制</strong>来精准区分<strong>多目标、单目标和无目标</strong>情况</li>
+</ol>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p><img src="/../../../Pictures/image-20250315162722540.png" alt="image-20250315162722540"></p>
+<ol>
+<li><p>图像-&gt;视觉骨干网络(Swin-Base)提取一组视觉特征$V_i$,之后通过deformable attention进一步编码为$V^m_i$。</p>
+</li>
+<li><p>文本表达E送进Transformer的语言编码器，生成词级别嵌入（细粒度表述）和句子级别嵌入（一般信息）</p>
+</li>
+<li><p>使用全连接层，将图像特征和文本特征映射要一个<strong>共享的联合空间D</strong>，为了让他们能相互作用V′&#x3D;FC(V),L′&#x3D;FC(L)</p>
+<p>SDM：负责生成语义图</p>
+</li>
+<li><p>生成粗语义图(coarse semantic map)</p>
+<p>通过注意力机制计算视觉特征和语言特征之间的匹配程度，生成一个粗语义图</p>
+</li>
+</ol>
+<img src="../../../Pictures/image-20250315164059569.png" alt="image-20250315164059569" style="zoom:50%;" />
+
+<ol start="5">
+<li><p>生成细粒度语义图（Fine-Grained Semantic Map S）</p>
+<p>使用注意力权重A，对视觉特征进行加权计算，得到更加精细的语义图S,表示哪些像素区域更可能是目标</p>
+</li>
+</ol>
+<p>​		<img src="../../../Pictures/image-20250315164244018.png" alt="image-20250315164244018" style="zoom:50%;" /></p>
+<ol start="6">
+<li><p>语义图用于目标分割：语义图S和L作为输入，进入层次语义解析器（HSD），对不同粒度的语义层次进行动态掩码解码，生成相应的目标分割 M</p>
+<ul>
+<li>通过学习的注意力权重将视觉和语言表示映射到注意力空间，生成更精确的语义图S</li>
+<li>通过层次化的多粒度视觉-语言匹配，生成视觉-语言语义的层次结构，用于动态聚合</li>
+<li>细粒度语义图 <strong>S</strong> 进行全连接层的映射，将其映射到查询空间，从而实现语言查询的再激活，确保更加全面的理解。</li>
+</ul>
+</li>
+<li><p><strong>自适应目标计数模块（AOC）</strong> 被设计用于提升不同场景下目标的精准感知，通过赋予目标计数能力来进行精细分割。现有的GRES方法使用二分类来判断目标是否存在，但是这种设计在GRES任务存在局限性：多目标和单目标被统一处理；语言重构方法【模型学习重新生成输入文本】的局限性</p>
+<p>AOC通过<strong>多模态语义查询（Multi-Modal Semantic Queries）</strong> 计算目标数量</p>
+<ul>
+<li><p>计算类别计数向量（Counting Vector），最终将所有层次的计数向量平均池化得到最终的综合计数预测值</p>
+</li>
+<li><p>计算目标计数损失（Losscount）</p>
+<p>计算目标计数值和真实计数值之间的平滑L1损失</p>
+</li>
+</ul>
+</li>
+<li><p>训练目标和损失函数</p>
+<ul>
+<li><p>掩码损失（Lossmask）:使用二元交叉熵损失计算预测分割掩码和真实掩码的差距</p>
+</li>
+<li><p>目标计算损失</p>
+</li>
+<li><p>目标存在性损失：在AOC上添加了一个轻量级的目标存在性判别头，之后使用交叉熵损失。目标存在性分类任务<strong>不会影响主框架的训练</strong>，它仅用于 GRES 评价任务，不会对模型的主要目标计数预测产生干扰</p>
+</li>
+<li><p>最终损失函数：</p>
+<img src="../../../Pictures/image-20250315183757889.png" alt="image-20250315183757889" style="zoom:45%;" /></li>
+</ul>
+</li>
+</ol>
+<p>HSD:传统方法使用传统的RES解码规范只使用最后一个融合特征，这个在传统的RES可以接受，因为它主要通过多模态交互匹配单一的目标，的但是在多目标可能会导致区域激活误解。可能导致信息丢失，而HSD采用层次化处理方式</p>
+<ul>
+<li>动态层次聚合（Dynamic Hierarchical Aggregation, DHA）：多尺度语义信息在不同层级进行结合，避免简单求和导致的信息丢失</li>
+<li>跨层选择机制（Inter-Selection &amp; Intra-Selection）<ul>
+<li>跨级选择（InterSelection）——找最重要的积木：通过门控电路分配不同<strong>特征层</strong>的权重，决定该层信息最最终分割的贡献大小（更加关注大颗粒还是小颗粒）</li>
+<li>内部选择（IntraSelection）——筛选最优信息：使用通道注意力动态调整每个特征图的响应，使得与目标匹配的区域更突出，其他区域的激活被抑制。（决定该层的那部分最重要）</li>
+<li>加权聚合：确保所有层的信息都被合理利用<ul>
+<li><strong>第一步</strong>：先对最低层（最粗粒度）信息进行加权</li>
+<li><strong>第二步</strong>：通过<strong>上采样（Up）</strong>，让低层特征的信息逐步传递到更高层，同时结合高层特征</li>
+<li>最终得到高质量的目标分割掩码</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>gIoU: 解决IoU没有交集情况的局限性</p>
+<p>Semantic Decoding Module, SDM</p>
+<ul>
+<li>mask generation：</li>
+<li>query refinement</li>
+</ul>
+<h2 id="Method-1"><a href="#Method-1" class="headerlink" title="Method"></a>Method</h2><p><strong>视觉骨干网络（Backbone）</strong>：Swin Transformer </p>
+<p><strong>文本编码器（Language Backbone）</strong>：BERT </p>
+<p>ReLA是之前最强的GRES方法</p>
+<p>消融实验</p>
+<ul>
+<li>在gRefCOCO验证集使用Swin-Tiny作为视觉骨干进行消融实验<ul>
+<li>HSD 和 AOC 模块的有效性<ul>
+<li>单独使用HSD</li>
+<li>单独使用AOC</li>
+<li>HSD+AOC</li>
+</ul>
+</li>
+<li>HSD内部组件分析<ul>
+<li>SDM</li>
+<li>DHA</li>
+</ul>
+</li>
+<li>目标存在性识别<ul>
+<li>二分类</li>
+<li>AOC计数头</li>
+</ul>
+</li>
+<li>内部选择&amp;跨级选择</li>
+<li>掩码解码方式<ul>
+<li>逐层监督</li>
+<li>层次聚合</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>创新点</p>
+<ul>
+<li>动态层次聚合（DHA）</li>
+<li>内部选择</li>
+<li>跨级选择</li>
+<li>AOC</li>
+</ul>
 <hr>
-<p>ClIP迁移学习能力能力非常强，可以在任意一个视觉分类的数据集上，取得不错的效果，而且是zero-shot【没有在这些数据集上做训练就可以获得很高的效果】</p>
-<p>之前最先进的视觉系统训练都是先有一个固定的提前已经定义好的物体类别（ImageNet就有固定1000个类，CIFAR10就有10个类，coco就是80个类）的集合，之后模型通过去预测这些提前定义好的类别从而完成模型的训练</p>
-<p><img src="/../../../Pictures/image-20250309145138600.png" alt="image-20250309145138600"></p>
+<p>一般视觉特征提取用的都是CNN(ResNet&#x2F; Swin Transformer)，传统方法通常只使用最深层的特征，传统方法只使用句子级别的嵌入，而不会使用每个词的详细信息，之后传统方法将视觉特征的最后一层和文本特征的句子嵌入进行简单的融合，比如特征拼接&#x2F;线性变换，之后使用融合之后的单一特征F进行预测分割掩码</p>
+<hr>
+<p>消融实验：逐个移除不同的模块，观察性能；组合移除</p>
+<hr>
+<p>逐层监督：</p>
 <ul>
-<li>图片经过image encoder获得一些特征，这里的图片编码器可以是resnet &#x2F; ViT</li>
-<li>文字通过text encoder获得文字特征</li>
-<li>CLIP接着在这些特征上做对比学习，特征矩阵里对角线方向都是正样本，即有n个正样本，$n^2-n$个负样本, 有了正负样本，模型就可以自己训练而不需要手工标注，属于无监督的预训练方式，需要大量数据</li>
-<li>对比学习<ul>
-<li>只需要正样本和负样本的定义</li>
+<li>模型多个层级上添加额外的监督信号，不只在最终输出进行监督</li>
 </ul>
-</li>
-</ul>
-<p><img src="/../../../Pictures/image-20250309145832474.png" alt="image-20250309145832474"></p>
-<ul>
-<li>CLIP做zero-shot推理<ul>
-<li>CLIP模型预训练之后只能得到视觉和文本特征，没有在分类任务上继续做训练和微调，没有分类头，所以使用prompt templte（自然语言的方法）进行推理<ul>
-<li>先把image_net里面1000个类变成一个句子，之后通过text encoder得到1000个文本特征<ul>
-<li>为什么要将单词变成句子，因为训练的时候是句子，现在突然变成单词，效果会下降</li>
-<li>如何变成句子也很讲究，所以之后也提出了prompt engineering和prompt ensemble两种方式进一步提高模型准确率，而不需要重新训练模型</li>
-</ul>
-</li>
-<li>获得一张图片，放进image encoder获得图片特征，将这一个图片特征和1000个文本特征做cosine similarity，之后图像特征和哪个文本特征最相似，就把文本特征所对应的那个句子挑出来，从而完成分类</li>
-</ul>
-</li>
-<li>彻底摆脱categorical label,不管训练还是推理都不要一个提前订好的标签的列表，任意一张照片，都可以给模型喂不同的文本句子，从而指导图片里又是没有感兴趣的物体，CLIP因为和自然语言处理的结合，CLIP学出的视觉特征和用语言描述的某个物体产生强烈的联系</li>
-</ul>
-</li>
-<li>应用<ul>
-<li>分类</li>
-<li>图像生成<ul>
-<li>StyleCLIP</li>
-<li>CLIPDraw(不需要模型训练，只需要几步gradient descent就可以生成简笔画)</li>
-</ul>
-</li>
-<li>物体检测和分割<ul>
-<li>Open-vocabulary object detection via vision and language knowledge distillation(google)</li>
-<li>clifs(视频检索)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>自监督方式：自回归预测的方式还是掩码完形填空</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/09/CLIP/" data-id="cm81snc5k0003gcdpd41bc2p4" data-title="CLIP" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/03/11/CoHD/" data-id="cmdselqi70002twdp25aigi1z" data-title="CoHD" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -388,10 +641,10 @@
 
 
   
-    <article id="post-CLIP-Adapter" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-强化学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/03/09/CLIP-Adapter/" class="article-date">
-  <time class="dt-published" datetime="2025-03-09T06:18:15.000Z" itemprop="datePublished">2025-03-09</time>
+    <a href="/2025/03/11/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time class="dt-published" datetime="2025-03-11T10:45:37.000Z" itemprop="datePublished">2025-03-11</time>
 </a>
     
   </div>
@@ -402,7 +655,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/09/CLIP-Adapter/">CLIP-Adapter</a>
+      <a class="p-name article-title" href="/2025/03/11/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a>
     </h1>
   
 
@@ -410,11 +663,14 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <img src="../../../Pictures/image-20250311185253925.png" alt="image-20250311185253925" style="zoom:30%;" />
+
+<p>强化学习的最终目标是求解最优策略</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/09/CLIP-Adapter/" data-id="cm81snc570000gcdpba1ghsfz" data-title="CLIP-Adapter" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/03/11/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" data-id="cmdselqie0009twdpebj628qu" data-title="强化学习" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -426,10 +682,10 @@
 
 
   
-    <article id="post-多模态-llava基础知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-损失函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/03/09/%E5%A4%9A%E6%A8%A1%E6%80%81-llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="article-date">
-  <time class="dt-published" datetime="2025-03-08T16:01:33.000Z" itemprop="datePublished">2025-03-09</time>
+    <a href="/2025/03/11/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2025-03-11T07:09:05.000Z" itemprop="datePublished">2025-03-11</time>
 </a>
     
   </div>
@@ -440,7 +696,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/09/%E5%A4%9A%E6%A8%A1%E6%80%81-llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">多模态/llava基础知识</a>
+      <a class="p-name article-title" href="/2025/03/11/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/">损失函数</a>
     </h1>
   
 
@@ -448,59 +704,209 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="llava-large-language-and-vision-assistant"><a href="#llava-large-language-and-vision-assistant" class="headerlink" title="llava(large language and vision assistant)"></a>llava(large language and vision assistant)</h1><h2 id="架构介绍"><a href="#架构介绍" class="headerlink" title="架构介绍"></a>架构介绍</h2><p><img src="/../images/llava.png" alt="图片1"></p>
-<p>llava模型由3个部分组成，视觉编码器，一个简单的线性层和大语言模型。</p>
-<p>$X_q$大预言指令被编码成$H_q$, $X_v$图像经过视觉编码器编码成$Z_v$，之后经过投影矩阵W获得$H_v$，最终$H_v$和$H_q$相同维度，之后经过大预言模型给出response</p>
-<p>原论文架构：</p>
-<ul>
-<li><p>vision encoder：使用pre-trained CLIP的visual encoder ViT-L&#x2F;14，得到visual feature($Z_v$)&#x3D;g($X_v$)</p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/11/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" data-id="cmdselqib0008twdp4y5l0s14" data-title="损失函数" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-debug" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/10/debug/" class="article-date">
+  <time class="dt-published" datetime="2025-03-10T14:53:33.000Z" itemprop="datePublished">2025-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/03/10/debug/">debug</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>显示现在环境中所有的虚拟环境: conda env list;激活虚拟环境: conda activate **</p>
 </li>
-<li><p>projection W:一个简单的线性层，使用可训练的投影矩阵W，将视觉特征Z_v投影成language embedding tokens$H_v$（visual tokens），使得$H_v$和文本特征$H_q$在同一特征维度；也可以使用更加复杂的比如gated cross-attention in Flamingo和Q-former in BILP-2来代替</p>
-<ul>
-<li>图像通过投影层映射到与文本特征相同的空间之后，直接进入Transformer的最后一层，实现图像特征和文本特征的有效融合</li>
-</ul>
-</li>
-<li><p>language model: 生成word embedding, 给出回答，原论文中使用vicuna（因为它在大语言任务拥有最好的instruction following capabilities）</p>
-</li>
-</ul>
-<h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><ol>
-<li><p>对于每个图像$X_v$生成多轮对话数据，每轮对话有两个部分：问题($X_q$)和答案($X_a$)</p>
-</li>
-<li><p>将所有的对话都按照顺序组成一个整体序列，问题回答交替组织，每一轮随机选择图片和问题的顺序</p>
-<p><img src="/../images/format.png" alt="图片2"></p>
-</li>
-<li><p>通过自回归的方法逐步生成每一个回答，对于每一个生成的回答，使用$p(Xa|Xv, Xinstr) &#x3D;  \prod_ {i&#x3D;1}^Lp_θ(xi|Xv, X_{instr},&lt;i, Xa,&lt;i)$</p>
-<ul>
-<li>$X_a$是目标答案，所以这个是寻找目标答案的概率</li>
-</ul>
-</li>
-<li><p>训练细节，训练时只有绿色标记（assistant的回答）会用来计算损失，最终训练目标不仅要预测助手的回答，还要学习生成一个停止标记<STOP>结束对话</p>
-</li>
-<li><p>两阶段指令微调(训练)</p>
-<ul>
-<li>第一阶段：pre-training for feature alignment【主要目标是将图像特征和语言模型的词嵌入对齐，构造兼容视觉标记器】<ul>
-<li>数据筛选：从CC3M数据集(包含大量图像-文本对的大型数据集)中筛选出595K对图像和文本</li>
-<li>将图像-文本对转化为指令跟随数据，每个图像都有一个简单的指令配对</li>
-<li>冻结视觉编码器和LLM权重，只有投影矩阵W进行训练，投影矩阵作用是将图像特征与语言模型的词嵌入对齐，使得视觉信息和语言信息在训练过程中相互关联</li>
-</ul>
-</li>
-<li>第二阶段：Fine-tuning End-to-End<ul>
-<li>视觉编码器权重依然被冻结，投影层和LLM权重被微调</li>
-<li>考虑两个具体的应用场景<ul>
-<li>多模态聊天机器人</li>
-<li>science QA</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/09/%E5%A4%9A%E6%A8%A1%E6%80%81-llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="cm81snc5j0002gcdp9ra3gklf" data-title="多模态/llava基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/03/10/debug/" data-id="cmdselqi40001twdp1m6ncjau" data-title="debug" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-github仓库使用指南" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/10/github%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="article-date">
+  <time class="dt-published" datetime="2025-03-10T13:59:03.000Z" itemprop="datePublished">2025-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/03/10/github%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">github仓库使用指南</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>主分支main：存放提供给用户使用的正式版本（稳定版本）</p>
+<p>dev分支：存放开发版本，使用指令$git checkout -b <new-branch></p>
+<p>git push -u origin <branch></p>
+<p>克隆某一个分支: git clone -b <branch> <url></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/10/github%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" data-id="cmdselqia0006twdp1rxs3si2" data-title="github仓库使用指南" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-SAIL" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/09/SAIL/" class="article-date">
+  <time class="dt-published" datetime="2025-03-09T15:34:45.000Z" itemprop="datePublished">2025-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/03/09/SAIL/">SAIL</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Self-Improving-Efficient-Online-Alignment-of-Large-Language-Models"><a href="#Self-Improving-Efficient-Online-Alignment-of-Large-Language-Models" class="headerlink" title="Self-Improving Efficient Online Alignment of Large Language Models"></a>Self-Improving Efficient Online Alignment of Large Language Models</h1><p>RLHF是将大预言模型和人类偏好对齐的关键方法，post-training标准组件之一，对齐人类价值观（helpfulness, harmlessness,honest）</p>
+<p>在线RLHF本质上就是自我改进的过程</p>
+<ul>
+<li><p>离线对齐方式：DPO、IPO、SLiC，使用固定数据集，这个如果人类偏好发生变化也无法动态更新。而且因为训练前的数据集是固定的，所以即使回答比实际的好也会被判定低分：传统RLHF主要依赖于固定的奖励模式可能导致过拟合(比如：偏向长文本就会选取冗余的回答，即使一些问题简短回答就能回答好), <strong>在 RLHF 训练过程中，语言模型（LLM）生成的回答的分布发生了变化，而奖励模型（RM）的学习目标没有考虑这种变化，从而影响了模型对齐的效果</strong>。</p>
+<ul>
+<li><p>基于深度强化学习(Deep RL)的方法：近端策略优化(PPO)进行训练，有两个阶段</p>
+<ul>
+<li><p>第一阶段：训练奖励函数</p>
+<ul>
+<li><p>给定一个偏好数据集$D_{off}&#x3D;{(x,a_w,a_t)}$,其中$a_w$是质量高的回答, $a_l$是质量较低的回答</p>
+</li>
+<li><p>使用Bradley-Terry(BT)模型的对数似然函数计算奖励（最大化最大化模型对高质量回答和低质量回答评分的差距）</p>
+</li>
+</ul>
+</li>
+<li><p>第二阶段：使用PPO进行强化学习</p>
+</li>
+</ul>
+</li>
+<li><p>直接偏好学习: DPO</p>
+</li>
+</ul>
+</li>
+<li><p>在线对齐方式：主要关注，但是缺乏统一的概念框架，存在分布偏移问题(distribution shift)【由于训练数据和推理数据分布不一样，导致模型性能下降】，即使在线RLHF会实时更新数据集，但是可能因为采样策略偏向已有模式导致探索不足，或者奖励模型本身的偏移，导致分布和人类偏好不同，错误引导LLM收敛到次优策略</p>
+<ul>
+<li>试图回答两个关键问题<ul>
+<li><p><strong>Q1：如何在微调过程中生成新的回复？</strong>： <strong>主要通过当前正在训练的 LLM 生成新回复</strong>，在每个训练迭代中利用最新的模型生成样本。</p>
+</li>
+<li><p><strong>Q2：如何收集新生成回复的偏好反馈，以便更新语言模型？</strong> <strong>依赖于偏好预言机（preference oracle）来对回复进行排名</strong>，即假设有一个理想的评分系统可以提供偏好反馈。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>论文创新点</p>
+<ul>
+<li><strong>建立了在线 LLM 对齐的 “双层优化（bilevel optimization）” 视角</strong>，并提出了一种高效的 <strong>单层优化方法</strong> 来解决问题。</li>
+<li><strong>通过“奖励-策略等价性（reward-policy equivalence）”</strong>，使模型在在线 RLHF 过程中能够<strong>更有效地探索新的答案并优化偏好标签</strong>，从而<strong>避免分布偏移，提升自我改进的能力</strong>。</li>
+<li>这不仅<strong>统一了以往的在线 RLHF 方法</strong>（将它们作为特例），还提供了一种<strong>更稳定、更高效的对齐方式</strong>，减少了计算开销。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>[!CAUTION]</p>
+<p>是否有统一框架和分布偏移问题似乎是大家一直在解决的问题</p>
+</blockquote>
+<hr>
+<p>RLHF中离散和在线区别在于数据是否固定，训练开始之后是否会接触新的数据</p>
+<p>RLHF完整训练流程：</p>
+<ul>
+<li>SFT监督微调让模型学习基础的高质量回答，这个阶段只是让LLM具备基本的问答能力，这个回答风格没有完全对齐人类的期望</li>
+<li><strong>训练一个奖励模型（Reward Model, RM）</strong>，让它能自动评估 LLM 生成的回答，并打分。<ul>
+<li>让 LLM 生成多个不同版本的回答</li>
+<li>让<strong>人工标注者</strong> 对 LLM 生成的多个回答进行<strong>质量排序</strong>（从最佳到最差），生成一个带偏好的数据集，用于训练奖励模型</li>
+<li>RM（奖励模型）学会模仿人类的打分方式，使用比较方式训练（就是告诉Plan A&gt; Plan B，而不是直接训练具体的数值），损失函数使用Bradley-Terry 模型（用于比较两个选项的统计模型）或者对比学习损失</li>
+<li>让 RM 替代人类进行自动打分</li>
+</ul>
+</li>
+<li>用强化学习来优化 LLM，使其更加符合人类偏好</li>
+</ul>
+<p>Online (Iterative) RLHF</p>
+<ul>
+<li>SFT，一个<strong>经过初步微调的 LLM</strong>，但仍然可能生成不符合人类偏好的回答，只是具有基本的回答能力</li>
+<li>训练一个奖励模型，让它学会像人类一样评估 LLM 生成的回答质量，并给出评分（同上）</li>
+<li>在线强化学习优化 LLM（RL 训练 LLM），让 LLM 生成的回答越来越符合人类偏好</li>
+<li>数据 &amp; 偏好反馈的动态更新:会将更高的成对直接加进数据集之后接着训练</li>
+</ul>
+<p><img src="/../../../Pictures/image-20250311194021540.png" alt="image-20250311194021540"></p>
+<p><img src="/../../../Pictures/image-20250311202303371.png" alt="image-20250311202303371"></p>
+<h2 id="RLHF"><a href="#RLHF" class="headerlink" title="RLHF"></a>RLHF</h2><h3 id="标准三步程序"><a href="#标准三步程序" class="headerlink" title="标准三步程序"></a>标准三步程序</h3><ul>
+<li>step 0: SFT: 通过<strong>有监督学习（Supervised Learning）</strong> 在<strong>高质量的数据集</strong>上进行训练，使其初步掌握语言任务,仍然可能生成不符合人类偏好的回答，只是具有基本的回答能力</li>
+<li>step 1: reward learning(从人类偏好中学习奖励模型): 收集人类对不同回答的偏好数据，训练一个<strong>奖励模型（Reward Model, RM）</strong>，使其能够预测哪个回答更符合人类偏好。</li>
+<li>step 2: policy alignment via fine-tuning: 采用强化学习方法（如 <strong>PPO</strong>），让 LLM <strong>优化其回答策略，使其更符合人类偏好</strong></li>
+</ul>
+<h3 id="两种主要类别"><a href="#两种主要类别" class="headerlink" title="两种主要类别"></a>两种主要类别</h3><p><strong>离线 RLHF（Offline RLHF）</strong>：依赖<strong>预先收集的固定数据集</strong>进行对齐训练</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/09/SAIL/" data-id="cmdselqia0005twdphceafg72" data-title="SAIL" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -513,6 +919,11 @@
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -530,7 +941,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li></ul>
     </div>
   </div>
 
@@ -543,19 +954,23 @@
       <ul>
         
           <li>
-            <a href="/2025/03/09/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a>
+            <a href="/2025/08/01/Github%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2025/03/09/CLIP/">CLIP</a>
+            <a href="/2025/08/01/ViT%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2025/03/09/CLIP-Adapter/">CLIP-Adapter</a>
+            <a href="/2025/07/23/leecode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2025/03/09/%E5%A4%9A%E6%A8%A1%E6%80%81-llava%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">多模态/llava基础知识</a>
+            <a href="/2025/03/12/AutoDL%E4%BD%BF%E7%94%A8/">AutoDL使用</a>
+          </li>
+        
+          <li>
+            <a href="/2025/03/11/CoHD/">CoHD</a>
           </li>
         
       </ul>
